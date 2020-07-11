@@ -31,12 +31,11 @@
     font-size 3rem
     display flex
     align-items flex-end
-    justify-content flex-end
 
   .limits
     grid-area limits
 
-    text-align right
+    text-align left
     display flex
     flex-direction column
 
