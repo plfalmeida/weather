@@ -8,6 +8,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap')
 
+:root
+  --w-background: #0f0f0f;
+  --w-foreground: #fff;
+
 html
   font-size 62.5%
 
@@ -30,5 +34,6 @@ h1, h2, h3, h4, h5, h6
   -moz-osx-font-smoothing grayscale
 
 .container
-  max-width 76.8rem
+  width 90%
+  max-width 40rem
 </style>
