@@ -7,14 +7,14 @@
         h2 select a city
 
       main
-        img.logo(src="../assets/icons/world.svg", alt="alt")
+        img.logo(src="@/assets/icons/world.svg", alt="alt")
         ul.city-list
-          li.city: a Dallol
-          li.city: a Fairbanks
-          li.city: a London
-          li.city: a Recife
-          li.city: a Vancouver
-          li.city: a Yakutsk
+          li.city: router-link(:to="{ name: 'wheater' }") Dallol
+          li.city: router-link(:to="{ name: 'wheater' }") Fairbanks
+          li.city: router-link(:to="{ name: 'wheater' }") London
+          li.city: router-link(:to="{ name: 'wheater' }") Recife
+          li.city: router-link(:to="{ name: 'wheater' }") Vancouver
+          li.city: router-link(:to="{ name: 'wheater' }") Yakutsk
 
 </template>
 
@@ -73,5 +73,7 @@ h2
     font-size 2rem
     font-weight 200
     letter-spacing 0.15rem
+    text-decoration none
+    color #fff
 
 </style>
