@@ -1,13 +1,25 @@
 <template lang="pug">
 
   .temperature-widget
-    span.current 17
-    .unit: span ºC
+    span.current {{ temperature.current }}
+    .unit: span °C
     .limits
-      span.max 20º
-      span.min 17º
+      span.max {{ temperature.max }}°
+      span.min {{ temperature.min }}°
 
 </template>
+
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator'
+import { TemperatureInfo } from '@/types/Weather'
+
+@Component({
+  name: 'temperature'
+})
+export default class Temperature extends Vue {
+  @Prop({ required: true }) temperature: TemperatureInfo;
+}
+</script>
 
 <style lang="stylus" scoped>
 

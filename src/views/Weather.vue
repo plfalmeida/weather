@@ -7,7 +7,7 @@
         h2 snowy
 
       main
-        temperature
+        temperature(:temperature="temperature")
         temperature-extended
         day-info
 
@@ -19,6 +19,7 @@ import { Vue, Component } from 'vue-property-decorator'
 import Temperature from '@/components/Temperature/Temperature.vue'
 import TemperatureExtended from '@/components/Temperature/TemperatureExtended.vue'
 import DayInfo from '@/components/Day/DayInfo.vue'
+import { mapGetters } from 'vuex'
 
 @Component({
   name: 'Weather',
@@ -26,6 +27,11 @@ import DayInfo from '@/components/Day/DayInfo.vue'
     Temperature,
     TemperatureExtended,
     DayInfo
+  },
+  computed: {
+    ...mapGetters({
+      temperature: 'temperature'
+    })
   }
 })
 export default class Weather extends Vue {

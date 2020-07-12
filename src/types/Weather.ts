@@ -56,3 +56,9 @@ export interface Wind {
 export interface WeatherState {
   currentWeather: WeatherInfo;
 }
+
+export interface TemperatureInfo {
+  current: number;
+  max:     number;
+  min:     number;
+}

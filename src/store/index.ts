@@ -7,6 +7,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    currentWeather: {
+      main: {}
+    }
   } as WeatherState,
   mutations: {
     setWeather: (state, payload) => {
@@ -17,11 +20,11 @@ export default new Vuex.Store({
     fetchWeather: async (context, { cityName }: { cityName: string }) => {
       try {
         // TODO: Remove this code - only to development
-        const localWheter = JSON.parse(localStorage.getItem('weather')as string)
-        if (!localWheter) {
-          throw localWheter
+        const localWeather = JSON.parse(localStorage.getItem('weather')as string)
+        if (!localWeather) {
+          throw localWeather
         }
-        context.commit('setWeather', localWheter)
+        context.commit('setWeather', localWeather)
       } catch {
         try {
           const { data } = await weatherService.findByCity(cityName)
@@ -35,8 +38,13 @@ export default new Vuex.Store({
   },
   getters: {
     temperature: (state) => {
-      const { temp, temp_max: tempMax, temp_min: tempMin } = state.currentWeather.main
-      return { temp, tempMax, tempMin }
+      let { temp: current, temp_max: max, temp_min: min } = state.currentWeather.main
+
+      current = Math.trunc(current)
+      max = Math.trunc(max)
+      min = Math.trunc(min)
+
+      return { current, max, min }
     }
   }
 })
