@@ -9,12 +9,12 @@
       main
         img.logo(src="@/assets/icons/world.svg", alt="alt")
         ul.city-list
-          li.city: router-link(:to="{ name: 'wheater' }") Dallol
-          li.city: router-link(:to="{ name: 'wheater' }") Fairbanks
-          li.city: router-link(:to="{ name: 'wheater' }") London
-          li.city: router-link(:to="{ name: 'wheater' }") Recife
-          li.city: router-link(:to="{ name: 'wheater' }") Vancouver
-          li.city: router-link(:to="{ name: 'wheater' }") Yakutsk
+          li.city: router-link(:to="{ name: 'weather' }") Dallol
+          li.city: router-link(:to="{ name: 'weather' }") Fairbanks
+          li.city: router-link(:to="{ name: 'weather' }") London
+          li.city: router-link(:to="{ name: 'weather' }") Recife
+          li.city: router-link(:to="{ name: 'weather' }") Vancouver
+          li.city: router-link(:to="{ name: 'weather' }") Yakutsk
 
 </template>
 

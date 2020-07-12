@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .wheater(data-theme="rainy")
+  .weather(data-theme="rainy")
     .container
       header
         h1 London
@@ -21,14 +21,17 @@ import TemperatureExtended from '@/components/Temperature/TemperatureExtended.vu
 import DayInfo from '@/components/Day/DayInfo.vue'
 
 @Component({
-  name: 'Wheater',
+  name: 'Weather',
   components: {
     Temperature,
     TemperatureExtended,
     DayInfo
   }
 })
-export default class Wheater extends Vue {
+export default class Weather extends Vue {
+  mounted () {
+    this.$store.dispatch('fetchWeather', { cityName: 'London' })
+  }
 }
 </script>
 
@@ -45,7 +48,7 @@ h2
   font-size 2.5rem
   font-weight 200
 
-.wheater
+.weather
   padding 5rem 0
   min-height 100vh
   overflow-y auto

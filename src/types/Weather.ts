@@ -1,5 +1,5 @@
 
-export interface WheaterInfo {
+export interface WeatherInfo {
   coord:      Coord;
   weather:    Weather[];
   base:       string;
@@ -53,6 +53,6 @@ export interface Wind {
   deg:   number;
 }
 
-export interface WheaterState {
-  currentWheater: WheaterInfo;
+export interface WeatherState {
+  currentWeather: WeatherInfo;
 }
