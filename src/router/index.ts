@@ -8,17 +8,17 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
   },
   {
-    path: '/weather',
+    path: '/weather/:city',
     name: 'weather',
-    component: () => import('../views/Weather.vue')
-  }
+    component: () => import('../views/Weather.vue'),
+  },
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
 })
 
 export default router
