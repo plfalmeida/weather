@@ -4,17 +4,25 @@
     span.current {{ temperature.current }}
     .unit: span °C
     .limits
-      span.max {{ temperature.max }}°
-      span.min {{ temperature.min }}°
+      span.max.
+        #[arrow-icon]
+        {{ temperature.max }}°
+      span.min.
+        #[arrow-icon(direction="down")]
+        {{ temperature.min }}°
 
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { TemperatureInfo } from '@/types/Weather'
+import ArrowIcon from '../ui/ArrowIcon.vue'
 
 @Component({
-  name: 'temperature'
+  name: 'temperature',
+  components: {
+    ArrowIcon,
+  },
 })
 export default class Temperature extends Vue {
   @Prop({ required: true }) temperature: TemperatureInfo;
