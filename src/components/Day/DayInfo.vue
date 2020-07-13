@@ -1,23 +1,23 @@
 <template lang="pug">
   .day-info-widget
 
-    .statistic
-      span.statistic-name windspeed
-      span.statistic-value 5.1 m/s
-
-    .statistic
-      span.statistic-name sunrise
-      span.statistic-value 5:14 AM
-
-    .statistic
-      span.statistic-name sunset
-      span.statistic-value 7:25 PM
-
-    .statistic
-      span.statistic-name humidity
-      span.statistic-value 52%
+    .statistic(v-for="info in dailyInfo")
+      span.statistic-name {{ info.name }}
+      span.statistic-value {{ info.value }}
 
 </template>
+
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator'
+import { DayInfo } from '@/types/Weather'
+
+@Component({
+  name: 'day-info',
+})
+export default class Dayinfo extends Vue {
+  @Prop({ required: true }) dailyInfo: DayInfo[]
+}
+</script>
 
 <style lang="stylus" scoped>
 
