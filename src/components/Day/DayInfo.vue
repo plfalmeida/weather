@@ -31,7 +31,6 @@ export default class Dayinfo extends Vue {
   display flex
   flex 1
   flex-direction column
-  font-weight 200
   position relative
 
   & + .statistic&:before
@@ -49,6 +48,5 @@ export default class Dayinfo extends Vue {
 
   &-value
     font-size 1.4rem
-    font-weight 300
 
 </style>

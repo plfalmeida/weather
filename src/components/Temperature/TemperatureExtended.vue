@@ -35,7 +35,7 @@ export default class TemperatureExtended extends Vue {
   display flex
   flex 1
   flex-direction column
-  font-weight 200
+  font-weight 400
 
   &-name
     font-size 1.2rem
