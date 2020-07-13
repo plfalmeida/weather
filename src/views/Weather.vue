@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .weather(data-theme="rainy")
+  .weather(:data-theme="weather.main")
     .container
       header
         h1 {{ city }}
@@ -8,7 +8,7 @@
 
       main
         temperature(:temperature="temperature")
-        weather-icon(iconSize="@4x")
+        weather-icon(:iconId="weather.icon" iconSize="@4x")
         temperature-extended(:periods="hourly")
         day-info(:dailyInfo="dailyInfo")
 
@@ -38,7 +38,8 @@ import { mapGetters } from 'vuex'
 })
 export default class Weather extends Vue {
   mounted () {
-    this.$store.dispatch('fetchWeather', { cityName: 'London' })
+    const { city } = this.$route.params
+    this.$store.dispatch('fetchWeather', { cityName: city })
   }
 }
 </script>
@@ -55,7 +56,7 @@ h1
 h2
   margin-top 0.5rem
   font-size 2.5rem
-  font-weight 300
+  font-weight 200
   text-transform lowercase
 
 .weather
@@ -69,13 +70,22 @@ h2
   justify-content center
   transition all 0.8s
 
-  &[data-theme="sunny"]
+  &[data-theme="Clear"]
     --w-background linear-gradient(to bottom, #00c6ff, #0072ff)
 
-  &[data-theme="rainy"]
+  &[data-theme="Clouds"]
+    --w-background linear-gradient(to bottom, #00c6ff, #b0bac5)
+
+  &[data-theme="Drizzle"]
+    --w-background linear-gradient(to bottom, #a7bece, #6aa4de)
+
+  &[data-theme="Rain"]
     --w-background linear-gradient(to bottom, #bdc3c7, #2c3e50)
 
-  &[data-theme="snowy"]
+  &[data-theme="Thunderstorm"]
+    --w-background linear-gradient(to bottom, #8e5da0, #1a0540)
+
+  &[data-theme="Snow"]
     --w-background linear-gradient(to bottom, #f8fcff, #d0d0d0)
     --w-foreground #1d2d3e
 
