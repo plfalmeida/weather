@@ -3,13 +3,14 @@
   .weather(data-theme="rainy")
     .container
       header
-        h1 London
-        h2 snowy
+        h1 {{ city }}
+        h2 {{ weather.main }}
 
       main
         temperature(:temperature="temperature")
-        temperature-extended
-        day-info
+        weather-icon(iconSize="@4x")
+        temperature-extended(:periods="hourly")
+        day-info(:dailyInfo="dailyInfo")
 
 </template>
 
@@ -19,20 +20,21 @@ import { Vue, Component } from 'vue-property-decorator'
 import Temperature from '@/components/Temperature/Temperature.vue'
 import TemperatureExtended from '@/components/Temperature/TemperatureExtended.vue'
 import DayInfo from '@/components/Day/DayInfo.vue'
+import WeatherIcon from '@/components/ui/WeatherIcon.vue'
+
 import { mapGetters } from 'vuex'
 
 @Component({
-  name: 'Weather',
+  name: 'weather',
   components: {
     Temperature,
     TemperatureExtended,
-    DayInfo
+    DayInfo,
+    WeatherIcon,
   },
   computed: {
-    ...mapGetters({
-      temperature: 'temperature'
-    })
-  }
+    ...mapGetters(['temperature', 'dailyInfo', 'weather', 'city', 'hourly']),
+  },
 })
 export default class Weather extends Vue {
   mounted () {
@@ -48,11 +50,13 @@ header
 
 h1
   font-size 4.5rem
+  text-transform uppercase
 
 h2
   margin-top 0.5rem
   font-size 2.5rem
-  font-weight 200
+  font-weight 300
+  text-transform lowercase
 
 .weather
   padding 5rem 0
@@ -63,6 +67,7 @@ h2
   text-align center
   display flex
   justify-content center
+  transition all 0.8s
 
   &[data-theme="sunny"]
     --w-background linear-gradient(to bottom, #00c6ff, #0072ff)
