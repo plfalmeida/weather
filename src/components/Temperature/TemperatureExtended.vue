@@ -1,32 +1,30 @@
 <template lang="pug">
   .temperature-extended-widget
 
-    .period
+    .period(v-for="period in periods")
       span.period-name dawn
       span.period-icon
-      span.period-temperature 13 ºC
-
-    .period
-      span.period-name dawn
-      span.period-icon
-      span.period-temperature 13 ºC
-
-    .period
-      span.period-name dawn
-      span.period-icon
-      span.period-temperature 13 ºC
-
-    .period
-      span.period-name dawn
-      span.period-icon
-      span.period-temperature 13 ºC
+        weather-icon(:iconId="period.weather.icon")
+      span.period-temperature {{ period.temp }} ºC
 
 </template>
 
-<style lang="stylus" scoped>
-// *
-//   border 1px solid #fff
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator'
+import WeatherIcon from '@/components/ui/WeatherIcon.vue'
 
+@Component({
+  name: 'temperature-extended',
+  components: {
+    WeatherIcon,
+  },
+})
+export default class TemperatureExtended extends Vue {
+  @Prop() periods: unknown
+}
+</script>
+
+<style lang="stylus" scoped>
 .temperature-extended-widget
   display flex
   flex-direction row
