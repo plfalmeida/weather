@@ -55,10 +55,20 @@ export interface Wind {
 
 export interface WeatherState {
   currentWeather: WeatherInfo;
+  // TODO: Add correct type
+  hourlyDetail: {
+    hourly:   any[];
+    timeZone: string;
+  };
 }
 
 export interface TemperatureInfo {
   current: number;
   max:     number;
   min:     number;
+}
+
+export interface DayInfo {
+  name:  string;
+  value: number;
 }
