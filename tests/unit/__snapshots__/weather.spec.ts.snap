@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Weather.vue Match snapshot 1`] = `
+<div data-theme="" class="weather">
+  <nav class="top-navigation">
+    <router-link-stub to="[object Object]" tag="a" ariacurrentvalue="page" event="click" class="back-button">
+      <arrow-icon-stub direction="left"></arrow-icon-stub>
+    </router-link-stub>
+  </nav>
+  <div class="container">
+    <header>
+      <h1></h1>
+      <h2></h2>
+    </header>
+    <main>
+      <temperature-stub temperature="[object Object]"></temperature-stub>
+      <weather-icon-stub iconid="02d" iconsize="@4x"></weather-icon-stub>
+      <temperature-extended-stub periods=""></temperature-extended-stub>
+      <day-info-stub dailyinfo="[object Object],[object Object],[object Object],[object Object]"></day-info-stub>
+    </main>
+  </div>
+</div>
+`;
