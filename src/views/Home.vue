@@ -9,20 +9,22 @@
       main
         img.logo(src="@/assets/icons/world.svg", alt="alt")
         ul.city-list
-          li.city: router-link(:to="{ name: 'weather' }") Dallol
-          li.city: router-link(:to="{ name: 'weather' }") Fairbanks
-          li.city: router-link(:to="{ name: 'weather' }") London
-          li.city: router-link(:to="{ name: 'weather' }") Recife
-          li.city: router-link(:to="{ name: 'weather' }") Vancouver
-          li.city: router-link(:to="{ name: 'weather' }") Yakutsk
+          li.city(v-for="city in cities")
+            router-link(:to="{ name: 'weather', params: { city } }") {{ city }}
 
 </template>
 
 <script>
+import { Vue, Component } from 'vue-property-decorator'
+import { mapGetters } from 'vuex'
 
-export default {
+@Component({
   name: 'home',
-}
+  computed: {
+    ...mapGetters(['cities']),
+  },
+})
+export default class Home extends Vue {}
 </script>
 
 <style lang="stylus" scoped>

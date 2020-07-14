@@ -54,6 +54,7 @@ export interface Wind {
 }
 
 export interface WeatherState {
+  cities: string[];
   currentWeather: WeatherInfo;
   // TODO: Add correct type
   hourlyDetail: {

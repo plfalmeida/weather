@@ -3,6 +3,7 @@ import { GetterTree } from 'vuex'
 import { unixToDate, zoneDateFromUnix, getHour } from '@/helpers/date'
 
 const getters: GetterTree<WeatherState, WeatherState> = {
+  cities: (state) => state.cities,
   temperature: (state) => {
     let { temp: current, temp_max: max, temp_min: min } = state.currentWeather.main
 

@@ -19,6 +19,14 @@ const state = {
     hourly: [],
   },
   locale: navigator.language,
+  cities: [
+    'Dallol',
+    'Fairbanks',
+    'London',
+    'Recife',
+    'Vancouver',
+    'Yakutsk',
+  ],
 } as unknown as WeatherState
 
 export default new Vuex.Store({
