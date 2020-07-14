@@ -7,7 +7,8 @@
         h2 select a city
 
       main
-        img.logo(src="@/assets/icons/world.svg", alt="alt")
+        .logo
+          world
         ul.city-list
           li.city(v-for="city in cities")
             router-link(:to="{ name: 'weather', params: { city } }") {{ city }}
@@ -17,9 +18,13 @@
 <script>
 import { Vue, Component } from 'vue-property-decorator'
 import { mapGetters } from 'vuex'
+import World from '../assets/icons/world.svg'
 
 @Component({
   name: 'home',
+  components: {
+    World,
+  },
   computed: {
     ...mapGetters(['cities']),
   },
