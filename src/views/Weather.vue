@@ -1,6 +1,9 @@
 <template lang="pug">
 
   .weather(:data-theme="weather.main")
+    nav.top-navigation
+      router-link(:to="{ name: 'home' }").back-button
+        arrow-icon(direction="left")
     .container
       header
         h1 {{ city }}
@@ -21,6 +24,7 @@ import Temperature from '@/components/Temperature/Temperature.vue'
 import TemperatureExtended from '@/components/Temperature/TemperatureExtended.vue'
 import DayInfo from '@/components/Day/DayInfo.vue'
 import WeatherIcon from '@/components/ui/WeatherIcon.vue'
+import ArrowIcon from '../components/ui/ArrowIcon.vue'
 
 import { mapGetters } from 'vuex'
 
@@ -31,6 +35,7 @@ import { mapGetters } from 'vuex'
     TemperatureExtended,
     DayInfo,
     WeatherIcon,
+    ArrowIcon,
   },
   computed: {
     ...mapGetters(['temperature', 'dailyInfo', 'weather', 'city', 'hourly']),
@@ -58,6 +63,19 @@ h2
   font-size 2.5rem
   font-weight 200
   text-transform lowercase
+
+.top-navigation
+  width 100%
+  position fixed
+  top 0
+  left 0
+  text-align left
+
+.back-button
+  padding 1rem
+  display inline-block
+  >>> svg
+    width 2rem
 
 .weather
   padding 5rem 0
