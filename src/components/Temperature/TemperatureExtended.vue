@@ -4,7 +4,7 @@
     .period(v-for="period in periods")
       span.period-name {{ period.name }}
       span.period-icon
-        weather-icon(:iconId="period.weather.icon")
+        weather-icon(:iconId="period.weather.icon" :custom="customIcons")
       span.period-temperature
         number(:from="0" :to="period.temp" :duration="1")
         |°C
@@ -27,6 +27,7 @@ Vue.use(VueNumber)
 })
 export default class TemperatureExtended extends Vue {
   @Prop() periods: unknown
+  @Prop({ default: false }) customIcons: boolean
 }
 </script>
 

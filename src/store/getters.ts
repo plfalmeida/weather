@@ -4,6 +4,7 @@ import { unixToDate, zoneDateFromUnix, getHour } from '@/helpers/date'
 
 const getters: GetterTree<WeatherState, WeatherState> = {
   cities: (state) => state.cities,
+  showCustomIcons: (state) => state.customIcons,
   temperature: (state) => {
     let { temp: current = 0, temp_max: max = 0, temp_min: min = 0 } = state.currentWeather.main
 

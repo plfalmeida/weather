@@ -9,6 +9,7 @@ import mutations from './mutations'
 Vue.use(Vuex)
 
 const state = {
+  customIcons: false,
   currentWeather: {
     main: {},
     wind: {},

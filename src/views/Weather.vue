@@ -9,10 +9,10 @@
         h1 {{ city }}
         h2 {{ weather.main }}
 
-      main
+      main(@click="changeIconSet")
         temperature(:temperature="temperature")
-        weather-icon(:iconId="weather.icon" iconSize="@4x")
-        temperature-extended(:periods="hourly")
+        weather-icon(:iconId="weather.icon" iconSize="@4x" :custom="showCustomIcons")
+        temperature-extended(:periods="hourly" :customIcons="showCustomIcons")
         day-info(:dailyInfo="dailyInfo")
 
 </template>
@@ -38,13 +38,17 @@ import { mapGetters } from 'vuex'
     ArrowIcon,
   },
   computed: {
-    ...mapGetters(['temperature', 'dailyInfo', 'weather', 'city', 'hourly']),
+    ...mapGetters(['temperature', 'dailyInfo', 'weather', 'city', 'hourly', 'showCustomIcons']),
   },
 })
 export default class Weather extends Vue {
   mounted () {
     const { city } = this.$route.params
     this.$store.dispatch('fetchWeather', { cityName: city })
+  }
+
+  changeIconSet () {
+    this.$store.commit('toggleIconSet')
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template lang="pug">
-  img(v-if="!custom" :src="icon")
-  custom-weather-icon(v-else :iconId="iconId" :iconSize="iconSize")
+  custom-weather-icon(v-if="custom" :iconId="iconId" :iconSize="iconSize")
+  img(v-else :src="icon")
 </template>
 
 <script lang="ts">

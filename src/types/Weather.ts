@@ -54,9 +54,9 @@ export interface Wind {
 }
 
 export interface WeatherState {
+  customIcons: boolean;
   cities: string[];
   currentWeather: WeatherInfo;
-  // TODO: Add correct type
   hourlyDetail: {
     hourly:   any[];
     timezone: string;

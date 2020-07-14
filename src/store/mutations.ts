@@ -9,6 +9,9 @@ const mutations: MutationTree<WeatherState> = {
     payload.hourly.length = 23
     state.hourlyDetail = payload
   },
+  toggleIconSet: (state) => {
+    state.customIcons = !state.customIcons
+  },
 }
 
 export default mutations
