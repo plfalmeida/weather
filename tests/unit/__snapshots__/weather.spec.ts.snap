@@ -2,6 +2,11 @@
 
 exports[`Weather.vue Match snapshot 1`] = `
 <div data-theme="" class="weather">
+  <nav class="top-navigation">
+    <router-link-stub to="[object Object]" tag="a" ariacurrentvalue="page" event="click" class="back-button">
+      <arrow-icon-stub direction="left"></arrow-icon-stub>
+    </router-link-stub>
+  </nav>
   <div class="container">
     <header>
       <h1></h1>
