@@ -58,8 +58,9 @@ export interface WeatherState {
   // TODO: Add correct type
   hourlyDetail: {
     hourly:   any[];
-    timeZone: string;
+    timezone: string;
   };
+  locale: string;
 }
 
 export interface TemperatureInfo {

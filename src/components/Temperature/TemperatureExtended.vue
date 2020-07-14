@@ -2,7 +2,7 @@
   .temperature-extended-widget
 
     .period(v-for="period in periods")
-      span.period-name dawn
+      span.period-name {{ period.name }}
       span.period-icon
         weather-icon(:iconId="period.weather.icon")
       span.period-temperature {{ period.temp }} ºC
