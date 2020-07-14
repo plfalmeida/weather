@@ -5,13 +5,19 @@
       span.period-name {{ period.name }}
       span.period-icon
         weather-icon(:iconId="period.weather.icon")
-      span.period-temperature {{ period.temp }} ºC
+      span.period-temperature
+        number(:from="0" :to="period.temp" :duration="1")
+        |°C
 
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import WeatherIcon from '@/components/ui/WeatherIcon.vue'
+
+import VueNumber from 'vue-number-animation'
+
+Vue.use(VueNumber)
 
 @Component({
   name: 'temperature-extended',

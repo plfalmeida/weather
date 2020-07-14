@@ -1,15 +1,18 @@
 <template lang="pug">
 
   .temperature-widget
-    span.current {{ temperature.current }}
+    span.current
+      number(:from="0" :to="temperature.current" :duration="1")
     .unit: span °C
     .limits
-      span.max.
-        #[arrow-icon]
-        {{ temperature.max }}°
-      span.min.
-        #[arrow-icon(direction="down")]
-        {{ temperature.min }}°
+      span.max
+        arrow-icon
+        number(:from="0" :to="temperature.max" :duration="1")
+        |°
+      span.min
+        arrow-icon(direction="down")
+        number(:from="0" :to="temperature.min" :duration="1")
+        |°
 
 </template>
 
@@ -17,6 +20,9 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { TemperatureInfo } from '@/types/Weather'
 import ArrowIcon from '../ui/ArrowIcon.vue'
+import VueNumber from 'vue-number-animation'
+
+Vue.use(VueNumber)
 
 @Component({
   name: 'temperature',
