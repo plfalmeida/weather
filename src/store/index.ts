@@ -18,6 +18,7 @@ const state = {
   hourlyDetail: {
     hourly: [],
   },
+  locale: navigator.language,
 } as unknown as WeatherState
 
 export default new Vuex.Store({
