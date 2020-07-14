@@ -7,22 +7,29 @@
         h2 select a city
 
       main
-        img.logo(src="../assets/icons/world.svg", alt="alt")
+        .logo
+          world
         ul.city-list
-          li.city: a Dallol
-          li.city: a Fairbanks
-          li.city: a London
-          li.city: a Recife
-          li.city: a Vancouver
-          li.city: a Yakutsk
+          li.city(v-for="city in cities")
+            router-link(:to="{ name: 'weather', params: { city } }") {{ city }}
 
 </template>
 
 <script>
+import { Vue, Component } from 'vue-property-decorator'
+import { mapGetters } from 'vuex'
+import World from '../assets/icons/world.svg'
 
-export default {
-  name: 'Home'
-}
+@Component({
+  name: 'home',
+  components: {
+    World,
+  },
+  computed: {
+    ...mapGetters(['cities']),
+  },
+})
+export default class Home extends Vue {}
 </script>
 
 <style lang="stylus" scoped>
@@ -73,5 +80,7 @@ h2
     font-size 2rem
     font-weight 200
     letter-spacing 0.15rem
+    text-decoration none
+    color #fff
 
 </style>
