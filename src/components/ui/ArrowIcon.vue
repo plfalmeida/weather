@@ -27,8 +27,14 @@ export default class ArrowIcon extends Vue {
   svg
     width 1.5rem
 
+    ../[data-direction="left"]&
+      transform rotate(270deg)
+
     ../[data-direction="down"]&
       transform rotate(180deg)
+
+    ../[data-direction="right"]&
+      transform rotate(90deg)
 
 svg
   fill var(--w-foreground)
